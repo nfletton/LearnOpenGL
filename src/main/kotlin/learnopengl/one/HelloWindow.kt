@@ -1,4 +1,4 @@
-package learnopengl
+package learnopengl.one
 
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.glfw.GLFWFramebufferSizeCallbackI
