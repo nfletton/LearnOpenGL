@@ -1,4 +1,4 @@
-package learnopengl.two
+package learnopengl.hellowtriangle1
 
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.glfw.GLFWFramebufferSizeCallbackI
