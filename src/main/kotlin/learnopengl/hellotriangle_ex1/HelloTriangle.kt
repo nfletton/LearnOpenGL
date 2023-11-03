@@ -1,4 +1,4 @@
-package learnopengl.hellowtriangle1
+package learnopengl.hellotriangle_ex1
 
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.glfw.GLFWFramebufferSizeCallbackI
@@ -109,9 +109,12 @@ fun main() {
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     val vertices = floatArrayOf(
-        -0.5f, -0.5f, 0.0f, // left
-        0.5f, -0.5f, 0.0f, // right
-        0.0f, 0.5f, 0.0f  // top
+        -0.95f, -0.5f, 0.0f, // left
+        0.0f, -0.5f, 0.0f, // right
+        -0.45f, 0.5f, 0.0f,  // top
+        0.0f, -0.5f, 0.0f, // left
+        0.95f, -0.5f, 0.0f, // right
+        0.45f, 0.5f, 0.0f  // top
     )
 
     val VAO = glGenVertexArrays()
@@ -153,7 +156,7 @@ fun main() {
         // draw our first triangle
         glUseProgram(shaderProgram)
         glBindVertexArray(VAO) // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-        glDrawArrays(GL_TRIANGLES, 0, 3)
+        glDrawArrays(GL_TRIANGLES, 0, 6)
         // glBindVertexArray(0); // no need to unbind it every time
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
