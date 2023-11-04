@@ -1,4 +1,4 @@
-package learnopengl.helloworld
+package hellowindow
 
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.glfw.GLFWFramebufferSizeCallbackI
@@ -6,15 +6,15 @@ import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL11.*
 import org.lwjgl.system.NativeType
 
-const val SCR_WIDTH = 800
-const val SCR_HEIGHT = 600
+private const val SCR_WIDTH = 800
+private const val SCR_HEIGHT = 600
 
 private val frameBufferSizeCallback =
     GLFWFramebufferSizeCallbackI { _, width, height ->
         glViewport(0, 0, width, height)
     }
 
-fun processInput(@NativeType("GLFWwindow *") window: Long) {
+private fun processInput(@NativeType("GLFWwindow *") window: Long) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true)
 }

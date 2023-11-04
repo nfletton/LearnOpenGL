@@ -1,4 +1,4 @@
-package learnopengl.hellotriangle_ex1
+package hellotriangle
 
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.glfw.GLFWFramebufferSizeCallbackI
@@ -7,10 +7,10 @@ import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL20.*
 import org.lwjgl.system.NativeType
 
-const val SCR_WIDTH = 800
-const val SCR_HEIGHT = 600
+private const val SCR_WIDTH = 800
+private const val SCR_HEIGHT = 600
 
-const val vertexShaderSource = """
+private const val vertexShaderSource = """
 #version 330 core
 layout (location = 0) in vec3 aPos;
 void main()
@@ -19,7 +19,7 @@ void main()
 }
 """
 
-const val fragmentShaderSource = """
+private const val fragmentShaderSource = """
 #version 330 core 
 out vec4 FragColor;
 void main()
@@ -34,7 +34,7 @@ private val frameBufferSizeCallback =
         glViewport(0, 0, width, height)
     }
 
-fun processInput(@NativeType("GLFWwindow *") window: Long) {
+private fun processInput(@NativeType("GLFWwindow *") window: Long) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true)
 }
@@ -109,12 +109,9 @@ fun main() {
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     val vertices = floatArrayOf(
-        -0.95f, -0.5f, 0.0f, // left
-        0.0f, -0.5f, 0.0f, // right
-        -0.45f, 0.5f, 0.0f,  // top
-        0.0f, -0.5f, 0.0f, // left
-        0.95f, -0.5f, 0.0f, // right
-        0.45f, 0.5f, 0.0f  // top
+        -0.5f, -0.5f, 0.0f, // left
+        0.5f, -0.5f, 0.0f, // right
+        0.0f, 0.5f, 0.0f  // top
     )
 
     val VAO = glGenVertexArrays()
@@ -156,7 +153,7 @@ fun main() {
         // draw our first triangle
         glUseProgram(shaderProgram)
         glBindVertexArray(VAO) // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-        glDrawArrays(GL_TRIANGLES, 0, 6)
+        glDrawArrays(GL_TRIANGLES, 0, 3)
         // glBindVertexArray(0); // no need to unbind it every time
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)

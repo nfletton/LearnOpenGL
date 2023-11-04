@@ -1,4 +1,4 @@
-package learnopengl.hellotriangle_ex2
+package hellotriangle
 
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.glfw.GLFWFramebufferSizeCallbackI
@@ -7,10 +7,10 @@ import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL20.*
 import org.lwjgl.system.NativeType
 
-const val SCR_WIDTH = 800
-const val SCR_HEIGHT = 600
+private const val SCR_WIDTH = 800
+private const val SCR_HEIGHT = 600
 
-const val vertexShaderSource = """
+private const val vertexShaderSource = """
 #version 330 core
 layout (location = 0) in vec3 aPos;
 void main()
@@ -19,7 +19,7 @@ void main()
 }
 """
 
-const val fragmentShaderSource = """
+private const val fragmentShaderSource = """
 #version 330 core 
 out vec4 FragColor;
 void main()
@@ -34,7 +34,7 @@ private val frameBufferSizeCallback =
         glViewport(0, 0, width, height)
     }
 
-fun processInput(@NativeType("GLFWwindow *") window: Long) {
+private fun processInput(@NativeType("GLFWwindow *") window: Long) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true)
 }
