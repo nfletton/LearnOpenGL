@@ -39,8 +39,8 @@ fun main() {
     // build and compile our shader program
     // ------------------------------------
     val ourShader = Shader(
-        "src/main/kotlin/shaders/vertex_shader_exercise1.cpp",
-        "src/main/kotlin/shaders/3.3.shader.fs"
+        "src/main/kotlin/shaders/exercise1.vert",
+        "src/main/kotlin/shaders/step3.frag"
     )
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
