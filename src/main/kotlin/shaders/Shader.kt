@@ -47,6 +47,8 @@ class Shader(vertexPath: String, fragmentPath: String) {
         glUniform1f(glGetUniformLocation(programId, name), value)
     }
 
+    fun delete() =     glDeleteProgram(programId)
+
     private fun checkCompileErrors(shader: Int, type: String) {
         val success = IntArray(1)
         if (type != "PROGRAM") {
